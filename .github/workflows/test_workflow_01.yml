@@ -1,0 +1,12 @@
+name: Test_React_App
+on: push
+jobs:
+  job_01:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get_repository_code
+      uses: actions/checkout@v3
+      - name: install_dependecies
+      run: npm ci
+      - name: test_application
+      run: npm run test
