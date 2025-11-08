@@ -11,6 +11,11 @@ jobs:
     steps:
       - name: Get_repository_code
         uses: actions/checkout@v3
+      - name: cache_test
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ hashFiles('**/package-lock.json') }}    
       - name: install_dependecies
         run: npm install
       - name: test_application
@@ -21,6 +26,11 @@ jobs:
     steps:
       - name: get_repository_code
         uses: actions/checkout@v3
+      - name: cache_test
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ hashFiles('**/package-lock.json') }}
       - name: install_dependecies
         run: npm install
       - name: lint appclication
@@ -31,6 +41,11 @@ jobs:
     steps:
       - name: get_repository_code
         uses: actions/checkout@v3
+      - name: cache_test
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ hashFiles('**/package-lock.json') }}
       - name: install_dependecies
         run: npm install
       - name: build application
