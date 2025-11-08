@@ -13,11 +13,19 @@ jobs:
   job_02-lint:
     runs-on: ubuntu-latest
     steps:
+      - name: get_repository_code
+        uses: actions/checkout@v3
+      - name: install_dependecies
+        run: npm install
       - name: lint appclication
         run: npm run lint
   job_03-build:
     runs-on: ubuntu-latest
     steps:
+      - name: get_repository_code
+        uses: actions/checkout@v3
+      - name: install_dependecies
+        run: npm install
       - name: build application
         run: npm run build
       - name: deploy
