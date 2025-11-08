@@ -1,0 +1,24 @@
+name: deploy react app
+on: push
+jobs:
+  job_01-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get_repository_code
+        uses: actions/checkout@v3
+      - name: install_dependecies
+        run: npm install
+      - name: test_application
+        run: npm run test
+  job_02-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: lint appclication
+        run: npm run lint
+  job_03-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: build application
+        run: npm run build
+      - name: deploy
+        run: echo "Deploy - started..."
