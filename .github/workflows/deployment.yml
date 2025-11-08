@@ -1,5 +1,8 @@
 name: deploy react app
-on: push
+on:
+  push:
+    branches:
+      - master
 jobs:
   job_01-test:
     runs-on: ubuntu-latest
