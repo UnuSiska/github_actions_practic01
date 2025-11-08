@@ -22,4 +22,4 @@ jobs:
       - name: get build progect
         uses: actions/download-artifact@v4
         with:
-          name: second_artifacts
+          name: build_artifacts
