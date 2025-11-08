@@ -6,3 +6,5 @@ jobs:
     steps:
       - name: steps_01
         run: echo "Heelo, its my first CI\CD"
+      - name: steps_02
+        run: echo -e "1\n2\n3\n4"
