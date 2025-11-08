@@ -3,8 +3,6 @@ on:
   push:
     branches:
       - master
-    paths-ignore:
-      - '.github/workflows/*'
 jobs:
   job_01-test:
     runs-on: ubuntu-latest
@@ -36,11 +34,19 @@ jobs:
       - name: lint appclication
         run: npm run lint
   job_03-build:
-    runs-on: ubuntu-latest
     needs: job_02-lint
+    strategy:
+      matrix:
+        key-matrix_01-version: [14, 16]
+        key-matrix_02-os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.key-matrix_02-os }}
     steps:
       - name: get_repository_code
         uses: actions/checkout@v3
+      - name: install node js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.key-matrix_01-version }}
       - name: cache_test
         uses: actions/cache@v3
         with:
