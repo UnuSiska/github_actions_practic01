@@ -1,0 +1,8 @@
+name: Test_WorkFlow
+on: workflow_dispatch
+jobs:
+  job_01:
+    runs-on: ubuntu-latest
+    steps:
+      - name: steps_01
+        run: echo "Heelo, its my first CI\CD"
