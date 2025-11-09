@@ -1,0 +1,18 @@
+name: enviroment
+on:
+  push:
+  workflow_dispatch:
+env:
+  NODE_ENV: production
+  GH_SECRET: 52
+jobs:
+  job_01-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print env build
+        run: echo -e "${{ env.NODE_ENV }}\n${{ env.GH_SECRET }}"
+  job_02-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print env deploy
+        run: echo -e "${{ env.NODE_ENV }}\n${{ env.GH_SECRET }}"
